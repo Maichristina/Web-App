@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Calculate Grades</title>
+</head>
+
+<body>
+		
+		<p class="container">Calculate</p>
+	
+		<form action="#" th:action="@{//calculate}"
+						 th:object="${calculate}" method="POST">
+						 
+		
+		<input type="text" th:field="*{per}"
+			class="form-control mb-4 col-4" placeholder="per">	
+		
+			
+		<input type="text" th:field="*{finalgrade}"
+			class="form-control mb-4 col-4" placeholder="finalgrade">	
+			
+		<input type="text" th:field="*{projectgrade}"
+			class="form-control mb-4 col-4" placeholder="projectgrade">
+
+		<input type="text" th:field="*{examgrade}"
+			class="form-control mb-4 col-4" placeholder="examgrade">	
+			
+			
+		
+					
+		<button type="submit" class="btn btn-info col-2">Calculate</button>
+						
+		</form>
+	
+		
+	</div>
+</body>
+
+</html>

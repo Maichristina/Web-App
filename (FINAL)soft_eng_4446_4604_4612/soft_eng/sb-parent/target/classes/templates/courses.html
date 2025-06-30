@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Courses</h3>
+	<hr>
+	
+	<!-- Add a button -->
+	<a th:href="@{/courses/showFormForAdd}"
+		class="btn btn-primary btn-sm mb-3">
+		Add Course
+	</a>
+	
+		<!-- Add a button -->
+	<a th:href="@{/hello}"
+		class="btn btn-primary btn-sm mb-3">
+		Menu
+	</a>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>ID</th>
+				<th>Semester</th>
+				<th>Name</th>
+				<th>Syllabus</th>
+				<th>Professor</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		
+			<tr th:each="tempCourses : ${courses}">
+			
+				<td th:text="${tempCourses.id}" />	
+				<td th:text="${tempCourses.semester}" />
+				<td th:text="${tempCourses.name}" />	
+				<td th:text="${tempCourses.syllabus}" />
+				<td th:text="${tempCourses.professor}" />
+				
+				
+				<td>
+					<!-- Add "update" button/link -->
+					<a th:href="@{/courses/showFormForUpdate(id=${tempCourses.id})}"
+					   class="btn btn-info btn-sm">
+						Update
+					</a>
+					
+					<!-- Add "delete" button/link -->					
+					<a th:href="@{/courses/delete(id=${tempCourses.id})}"
+					   class="btn btn-danger btn-sm"
+					   onclick="if (!(confirm('Are you sure you want to delete this course?'))) return false">
+						Delete
+					</a>
+					
+				
+					<!-- Add a button -->
+					<a th:href="@{/student/list}"
+						class="btn btn-primary btn-sm">
+						Students
+					</a>
+					
+				</td>
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+</div>
+
+
+</body>
+</html>
